@@ -1,18 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
+        <link rel="stylesheet" href="CSS1.css">
+    </head>
+    <body>
+        
+        <div class="container">
+            <div class="navbar">
+                <nav>
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT US</a></li>
+                    <li><a href="#">HELP</a></li>
+                    
+                    
+                </ul>
+            </nav>
 
-</head>
-<body>
+            
+            </div>
+           
+      
+        <div class="account-page">
+            
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-container">
+                            <div class="form-btn">
+                                <span onclick="login()">Login</span>
+                                <span onclick="register()">Register</span>
+                                <hr id="indicator"/>
+                            </div>
+                            <form id="LoginForm"> 
+                                <input type="text" placeholder="Username">
+                                <input type="password" placeholder="Password">
+                                <button type="submit" class="btn">Login</button>
+                                <a href=""> Forgot password</a>
+                            </form>
+                            <form id="RegForm">
+                                <input type="text" placeholder="Username">
+                                <input type="email" placeholder="E-Mail">
+                                <input type="text" placeholder="Mobile No.">
+                                <input type="password" placeholder="Password">
+                                <input type="password" placeholder="Confirm Password">
+                                <button type="submit" class="btn">Register</button>
+                              
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        </div>
+        <script>
+            var LoginForm =document.getElementById("LoginForm");
+            var RegForm = document.getElementById("RegForm");
+            var inidcator = document.getElementById("indicator"); 
 
-  <h1>Template</h1>
-  
-  <p>This is a blank template for a web page. Changing or not its changing
-    
-  </p>
-  <p>This is a blank template for a web page.</p>
-  <p>Hello guyz!</p>
-  <p>Hi</p>
-  
-</body>
+            function register(){
+                RegForm.style.transform ="translateX( 0px )";
+                LoginForm.style.transform = "translateX( 0px)";
+                indicator.style.transform = "translateX( 120px)";
+            }
+            function login(){
+                RegForm.style.transform ="translateX( 300px )";
+                LoginForm.style.transform = "translateX( 300px)";
+               indicator.style.transform = "translateX( 0px)";
+            }
+        </script>
+        
+    </body>
 </html>
