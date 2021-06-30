@@ -1,74 +1,53 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="CSS1.css">
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="navbar">
-                <nav>
-                <ul>
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">ABOUT US</a></li>
-                    <li><a href="#">HELP</a></li>
-                    
-                    
-                </ul>
-            </nav>
-
-            
-            </div>
-           
-      
-        <div class="account-page">
-            
-                <div class="row">
-                    <div class="col-2">
-                        <div class="form-container">
-                            <div class="form-btn">
-                                <span onclick="login()">Login</span>
-                                <span onclick="register()">Register</span>
-                                <hr id="indicator"/>
-                            </div>
-                            <form id="LoginForm"> 
-                                <input type="text" placeholder="Username">
-                                <input type="password" placeholder="Password">
-                                <button type="submit" class="btn">Login</button>
-                                <a href=""> Forgot password</a>
-                            </form>
-                            <form id="RegForm">
-                                <input type="text" placeholder="Username">
-                                <input type="email" placeholder="E-Mail">
-                                <input type="text" placeholder="Mobile No.">
-                                <input type="password" placeholder="Password">
-                                <input type="password" placeholder="Confirm Password">
-                                <button type="submit" class="btn">Register</button>
-                              
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+  <head>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="Assets/logo.png" alt="Logo" height="40" />
+          MUSIC PLAYER
         </div>
+        <nav>
+          <ul>
+            <li><a href="#">HOME</a></li>
+            <li><a href="#">ABOUT US</a></li>
+            <li><a href="#">HELP</a></li>
+          </ul>
+        </nav>
+      </div>
+      <br />
+      <br />
+      <div class="form-container">
+        <div class="form-btn">
+          <span onclick="login()">Login</span>
+          <span onclick="register()">Register</span>
+          <hr id="indicator" />
         </div>
-        <script>
-            var LoginForm =document.getElementById("LoginForm");
-            var RegForm = document.getElementById("RegForm");
-            var inidcator = document.getElementById("indicator"); 
-
-            function register(){
-                RegForm.style.transform ="translateX( 0px )";
-                LoginForm.style.transform = "translateX( 0px)";
-                indicator.style.transform = "translateX( 120px)";
-            }
-            function login(){
-                RegForm.style.transform ="translateX( 300px )";
-                LoginForm.style.transform = "translateX( 300px)";
-               indicator.style.transform = "translateX( 0px)";
-            }
-        </script>
-        
-    </body>
+        <form id="LoginForm">
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button type="submit" class="btn">Login</button>
+          <a href=""> Forgot password</a>
+        </form>
+        <form id="RegForm">
+          <input type="text" placeholder="Username" />
+          <input type="email" placeholder="E-Mail" />
+          <input type="text" placeholder="Mobile No." />
+          <input type="password" placeholder="Password" />
+          <input type="password" placeholder="Confirm Password" />
+          <button type="submit" class="btn">Register</button>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
 </html>
- 
