@@ -5,10 +5,12 @@
   font-family: "Roboto", sans-serif;
 }
 .container {
-  height: 100vh;
-  background-image: url("https://cdn.pixabay.com/photo/2017/11/12/16/41/people-2943109_960_720.jpg");
+  background: url(https://cdn.pixabay.com/photo/2017/11/12/16/41/people-2943109_960_720.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
 }
 .logo {
   display: flex;
@@ -25,7 +27,7 @@ nav {
   align-items: center;
   padding: 20px;
 }
-ul li {
+.nav {
   list-style-type: none;
   display: inline-block;
   margin-right: 20px;
@@ -38,9 +40,18 @@ a {
   font-size: 20px;
 }
 
+.about,
+.subscription {
+  color: aliceblue;
+  text-align: center;
+  font-size: 150%;
+  padding: 125px 10px 125px 10px;
+  list-style: inside;
+}
+
 .form-container {
   background: #fff;
-  height: 450px;
+  height: 400px;
   width: 300px;
   position: relative;
   text-align: center;
@@ -53,7 +64,6 @@ a {
 
 .form-container span {
   font-weight: bold;
-  padding: 0 10px;
   color: #555;
   cursor: pointer;
   width: 100px;
@@ -68,7 +78,7 @@ a {
   max-width: 300px;
   padding: 0 20px;
   position: absolute;
-  top: 70px;
+  top: 60px;
   transition: transform 1s;
 }
 
@@ -79,11 +89,18 @@ form input {
   padding: 0 10px;
 }
 
+.radio {
+  width: 20px;
+  font-size: 120%;
+  vertical-align: middle;
+  height: 20px;
+  padding: 5px;
+}
+
 .btn {
   width: 100%;
   border: none;
   cursor: pointer;
-  margin: 10px 0;
 }
 
 form .btn:focus {
@@ -94,7 +111,7 @@ form .btn:focus {
   left: -300px;
 }
 
-form{
+form {
   font-size: 12px;
 }
 
@@ -112,7 +129,7 @@ form{
   display: inline-block;
   background: #ff523b;
   color: #fff;
-  padding: 8px 30px;
-  margin: 30px 0;
+  padding: 8px;
+  margin: 10px 0;
   border-radius: 30px;
 }

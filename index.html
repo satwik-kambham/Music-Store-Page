@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
-    rel="stylesheet"
-  />
   <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -18,14 +18,25 @@
         </div>
         <nav>
           <ul>
-            <li><a href="#">HOME</a></li>
-            <li><a href="#">ABOUT US</a></li>
-            <li><a href="#">HELP</a></li>
+            <li class="nav"><a href="#">HOME</a></li>
+            <li class="nav"><a href="#">ABOUT US</a></li>
+            <li class="nav"><a href="#">HELP</a></li>
           </ul>
         </nav>
       </div>
+
+      <div class="about">
+        <h2>Music Player</h2>
+        <br />
+        <p>
+          An all in one music streaming service which allows creators worldwide
+          to eaily make their music available to the public.
+        </p>
+      </div>
+
       <br />
       <br />
+
       <div class="form-container">
         <div class="form-btn">
           <span onclick="login()">Login</span>
@@ -36,9 +47,13 @@
           <input type="text" placeholder="Username" />
           <input type="password" placeholder="Password" />
           <button type="submit" class="btn">Login</button>
-          <a href=""> Forgot password</a>
+          <button type="submit" class="btn">Guest Login</button>
         </form>
         <form id="RegForm">
+          <input type="radio" name="user" id="User" class="radio" / checked>
+          <label for="User" class="radio">User</label>
+          <input type="radio" name="user" id="Artist" class="radio" />
+          <label for="Artist" class="radio">Artist</label>
           <input type="text" placeholder="Username" />
           <input type="email" placeholder="E-Mail" />
           <input type="text" placeholder="Mobile No." />
@@ -46,6 +61,21 @@
           <input type="password" placeholder="Confirm Password" />
           <button type="submit" class="btn">Register</button>
         </form>
+      </div>
+
+      <br />
+      <br />
+
+      <div class="subscription">
+        <h2>Pricing</h2>
+        <br />
+        <p>
+          Pricing of subscription <br />
+          Benefits of subscription <br />
+        </p>
+        <ul class="list">
+          <li>Benefit 1</li>
+        </ul>
       </div>
     </div>
     <script src="script.js"></script>
