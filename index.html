@@ -1,13 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <title>Music Store</title>
   </head>
   <body>
     <div class="container">
@@ -44,10 +49,16 @@
           <hr id="indicator" />
         </div>
         <form id="LoginForm">
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
+          <input type="text" placeholder="Username" autocomplete="username" />
+          <input
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password"
+          />
           <button type="submit" class="btn">Login</button>
-          <button type="submit" class="btn">Guest Login</button>
+          <button type="button" class="btn" onclick="guestLogin()">
+            Guest Login
+          </button>
         </form>
         <form id="RegForm">
           <input type="radio" name="user" id="User" class="radio" / checked>
@@ -55,9 +66,13 @@
           <input type="radio" name="user" id="Artist" class="radio" />
           <label for="Artist" class="radio">Artist</label>
           <input type="text" placeholder="Username" />
-          <input type="email" placeholder="E-Mail" />
-          <input type="text" placeholder="Mobile No." />
-          <input type="password" placeholder="Password" />
+          <input type="email" placeholder="E-Mail" autocomplete="email" />
+          <input type="text" placeholder="Mobile No." autocomplete="tel" />
+          <input
+            type="password"
+            placeholder="Password"
+            autocomplete="new-password"
+          />
           <input type="password" placeholder="Confirm Password" />
           <button type="submit" class="btn">Register</button>
         </form>
