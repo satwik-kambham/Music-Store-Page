@@ -10,8 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="Stylesheets/style.css" />
     <title>Music Store</title>
   </head>
   <body>
@@ -24,7 +23,7 @@
         <nav>
           <ul>
             <li class="nav"><a href="#">HOME</a></li>
-            <li class="nav"><a href="#">ABOUT US</a></li>
+            <li class="nav"><a href="about.html">ABOUT US</a></li>
             <li class="nav"><a href="#">HELP</a></li>
           </ul>
         </nav>
@@ -49,11 +48,17 @@
           <hr id="indicator" />
         </div>
         <form id="LoginForm">
-          <input type="text" placeholder="Username" autocomplete="username" />
+          <input
+            type="text"
+            placeholder="Username"
+            autocomplete="username"
+            required
+          />
           <input
             type="password"
             placeholder="Password"
             autocomplete="current-password"
+            required
           />
           <button type="submit" class="btn">Login</button>
           <button type="button" class="btn" onclick="guestLogin()">
@@ -65,15 +70,26 @@
           <label for="User" class="radio">User</label>
           <input type="radio" name="user" id="Artist" class="radio" />
           <label for="Artist" class="radio">Artist</label>
-          <input type="text" placeholder="Username" />
-          <input type="email" placeholder="E-Mail" autocomplete="email" />
-          <input type="text" placeholder="Mobile No." autocomplete="tel" />
+          <input type="text" placeholder="Username" required />
+          <input
+            type="email"
+            placeholder="E-Mail"
+            autocomplete="email"
+            required
+          />
+          <input
+            type="text"
+            placeholder="Mobile No."
+            autocomplete="tel"
+            required
+          />
           <input
             type="password"
             placeholder="Password"
             autocomplete="new-password"
+            required
           />
-          <input type="password" placeholder="Confirm Password" />
+          <input type="password" placeholder="Confirm Password" required />
           <button type="submit" class="btn">Register</button>
         </form>
       </div>
@@ -93,6 +109,6 @@
         </ul>
       </div>
     </div>
-    <script src="script.js"></script>
+    <script src="Scripts/script.js"></script>
   </body>
 </html>

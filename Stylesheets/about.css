@@ -1,0 +1,118 @@
+.bg {
+  background-color: black;
+}
+.links {
+  width: 88%;
+  margin: auto;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.links ul li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 15px;
+}
+.links ul li a {
+  text-decoration: none;
+  color: azure;
+  font-size: 20px;
+}
+h1 {
+  font-size: 40px;
+  color: white;
+  font-family: brush script mt;
+}
+img {
+  height: 300px;
+  width: 500px;
+  border: 2px solid black;
+}
+
+p {
+  font-size: 40px;
+  font-family: trebuchet ms;
+  margin-left: 30px;
+}
+
+.about_us {
+  font-size: 15px;
+}
+
+div.gallery {
+  background-color: white;
+  margin: 5px;
+  border: 4px dashed black;
+  padding: 5px;
+  float: left;
+  margin-left: 65px;
+  width: 210px;
+  text-align: center;
+}
+div.gallery:hover {
+  border: 6px double #a40021;
+}
+
+div.gallery img {
+  width: 200px;
+  height: 200px;
+  border: 2px solid black;
+}
+hr {
+  border: 2px solid #88001b;
+  border-radius: 5px;
+}
+
+.clr1 {
+  color: white;
+  text-align: center;
+  font-family: trebuchet ms;
+}
+.clr2 {
+  color: black;
+  text-align: center;
+  font-family: trebuchet ms;
+}
+
+.bgc {
+  background-color: black;
+}
+h2 {
+  text-align: center;
+}
+
+input[type="text"] {
+  width: 90%;
+  padding: 12px 20px;
+  margin: 8px 0px;
+  margin-left: 60px;
+  display: inline-block;
+  border: 1px solid #000000;
+  border-radius: 6px;
+  box-sizing: border-box;
+  font-family: comic sans ms;
+}
+input[type="submit"] {
+  width: 100%;
+  background-color: #88001b;
+  color: white;
+  font-weight: 900;
+  font-family: trebuchet ms;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  margin-left: 20px;
+}
+input[type="submit"]:hover {
+  background-color: #530010;
+}
+
+.form_bg {
+  border-radius: 5px;
+  background-color: #dadada;
+  padding: 0px;
+  font-family: georgia;
+  font-weight: 900;
+}
