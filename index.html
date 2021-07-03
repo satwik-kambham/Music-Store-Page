@@ -23,7 +23,6 @@
         <nav>
           <ul>
             <li class="nav"><a href="about.html">ABOUT US</a></li>
-            >
           </ul>
         </nav>
       </div>
@@ -42,8 +41,8 @@
 
       <div class="form-container">
         <div class="form-btn">
-          <span onclick="login()">Login</span>
-          <span onclick="register()">Register</span>
+          <span onclick="loginbtn()">Login</span>
+          <span onclick="registerbtn()">Register</span>
           <hr id="indicator" />
         </div>
         <form id="LoginForm">
@@ -51,45 +50,76 @@
             type="text"
             placeholder="Username"
             autocomplete="username"
+            id="loginUsername"
             required
           />
           <input
             type="password"
             placeholder="Password"
             autocomplete="current-password"
+            id="loginPassword"
             required
           />
-          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn" onclick="login()">Login</button>
           <button type="button" class="btn" onclick="guestLogin()">
             Guest Login
           </button>
         </form>
         <form id="RegForm">
-          <input type="radio" name="user" id="User" class="radio" / checked>
+          <input
+            type="radio"
+            name="user"
+            id="User"
+            class="radio"
+            value="user"
+            checked
+          />
           <label for="User" class="radio">User</label>
-          <input type="radio" name="user" id="Artist" class="radio" />
+          <input
+            type="radio"
+            name="user"
+            id="Artist"
+            class="radio"
+            value="artist"
+          />
           <label for="Artist" class="radio">Artist</label>
-          <input type="text" placeholder="Username" required />
+          <input
+            type="text"
+            placeholder="Username"
+            id="registerUsername"
+            required
+          />
           <input
             type="email"
             placeholder="E-Mail"
             autocomplete="email"
+            id="registerEmail"
             required
           />
           <input
             type="text"
             placeholder="Mobile No."
             autocomplete="tel"
+            id="registerMobile"
             required
           />
           <input
             type="password"
             placeholder="Password"
             autocomplete="new-password"
+            id="registerPassword"
             required
           />
-          <input type="password" placeholder="Confirm Password" required />
-          <button type="submit" class="btn">Register</button>
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            autocomplete="current-password"
+            id="registerConfirm"
+            required
+          />
+          <button type="button" class="btn" onclick="register()">
+            Register
+          </button>
         </form>
       </div>
 
