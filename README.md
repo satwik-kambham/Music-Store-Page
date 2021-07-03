@@ -3,7 +3,7 @@
 TODO:
 
 - [ ] Validate login and register forms
-- [ ] Add server side files using node.js
-- [ ] Create database
-- [ ] Add database connectivity
- 
+- [x] Add server side files using node.js
+- [x] Create database
+- [x] Add database connectivity
+- [ ] Figure out how the database is going to look like
