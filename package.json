@@ -1,0 +1,28 @@
+{
+  "name": "music-store-page",
+  "version": "1.0.0",
+  "description": "A music store page in which users can view songs uploaded by artisits.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/code-explorer/Music-Store-Page.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "SQLite"
+  ],
+  "author": "Satwik Kambham",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/code-explorer/Music-Store-Page/issues"
+  },
+  "homepage": "https://github.com/code-explorer/Music-Store-Page#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
