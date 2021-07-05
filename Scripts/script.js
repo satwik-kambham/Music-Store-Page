@@ -29,7 +29,7 @@ function login() {
   fetch("/login", options);
 }
 
-function register() {
+async function register() {
   const username = document.getElementById("registerUsername").value;
   const email = document.getElementById("registerEmail").value;
   const mobile = document.getElementById("registerMobile").value;
@@ -39,16 +39,28 @@ function register() {
   let userType;
 
   for (i = 0; i < user.length; i++) {
-    if (user[i].checked)
-      userType = user[i].value;
+    if (user[i].checked) userType = user[i].value;
+  }
+
+  // TODO check if input is blank
+  if (username.length > 30) {
+    alert("Username cannot be greater than 30 characters");
+    return;
+  } else if (email.length > 30) {
+    alert("Email id cannot be greater than 30 characters");
+    return;
+  } else if (mobile.length > 13) {
+    alert("Mobile number cannot be greater than 13 characters");
+    return;
+  } else if (password.length > 30) {
+    alert("Password cannot be greater than 30 characters");
+    return;
   }
 
   if (password != confirmPassword) {
     alert("Passord not same as confirm password");
   } else {
     const registerData = { username, password, email, mobile, userType };
-
-    console.log(registerData);
 
     const options = {
       method: "POST",
@@ -58,7 +70,15 @@ function register() {
       body: JSON.stringify(registerData),
     };
 
-    fetch("/register", options);
+    const response = await fetch("/register", options);
+    let resp = await response.json();
+    console.log(resp);
+    if (resp.valid) {
+      console.log("Valid credentials");
+      // redirect to the profile page
+    } else {
+      alert("The username already exists.");
+    }
   }
 }
 
