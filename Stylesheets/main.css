@@ -1,0 +1,25 @@
+.logo {
+  display: flex;
+  align-items: center;
+  float: left;
+  font-size: 20px;
+  margin-top: -15x; /* you can change this to move the logo */
+  color: aliceblue;
+}
+nav {
+  text-align: right;
+}
+.navbar {
+  align-items: center;
+  padding: 20px;
+  background-color: blueviolet;
+}
+.nav {
+  list-style-type: none;
+  display: inline-block;
+  margin-right: 20px;
+}
+.navbar ul li a {
+  color: aliceblue;
+  font-size: 20px;
+}
