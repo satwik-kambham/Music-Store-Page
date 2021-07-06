@@ -42,8 +42,17 @@ db.run("SELECT * FROM USERS", (err, result) => {
 
 // login handling
 app.post("/login", (request, response) => {
-  console.log(request.body);
-  response.send("Got login credentials");
+  let resp = { status: "Got login credentials", valid: false };
+
+  db.all(
+    `select username, password from users where username= '${request.body.username}'`,
+    (err, rows) => {
+      if (rows.length == 1 && rows[0].password == request.body.password) {
+        resp.valid = true;
+      }
+      response.send(resp);
+    }
+  );
 });
 
 // registration handling

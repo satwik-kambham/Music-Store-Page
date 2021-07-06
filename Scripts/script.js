@@ -13,7 +13,7 @@ function loginbtn() {
   indicator.style.transform = "translateX( 0px)";
 }
 
-function login() {
+async function login() {
   const username = document.getElementById("loginUsername").value;
   const password = document.getElementById("loginPassword").value;
 
@@ -26,7 +26,10 @@ function login() {
     body: JSON.stringify(loginData),
   };
 
-  fetch("/login", options);
+  const response = await fetch("/login", options);
+  const resp = await response.json();
+
+  console.log(resp);
 }
 
 async function register() {
