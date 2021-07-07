@@ -12,7 +12,6 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="../Stylesheets/main.css" />
-    <script src="../Scripts/main.js"></script>
   </head>
   <body>
     <div class="bg">
@@ -20,10 +19,13 @@
         <h1><u>Symphony</u></h1>
         <ul>
           <li>
+            <a id="username"></a>
+          </li>
+          <li>
             <a href="/about.html"><u>About Us</u></a>
           </li>
           <li>
-            <a onclick="profile()"" style="cursor: pointer;"><u>Profile</u></a>
+            <a onclick="profile()" style="cursor: pointer"><u>Profile</u></a>
           </li>
           <li>
             <a href="/"><u>Logout</u></a>
@@ -33,16 +35,6 @@
       <hr />
     </div>
     <br />
-    <form id="form" role="search">
-      <input
-        type="search"
-        id="query"
-        name="q"
-        placeholder="Search..."
-        aria-label="Search through site content"
-      />
-      <button>Search</button>
-    </form>
 
     <center>
       <h2>All Time Favourites</h2>
@@ -179,5 +171,6 @@
         </audio>
       </div>
     </center>
+    <script src="../Scripts/main.js"></script>
   </body>
 </html>

@@ -35,6 +35,9 @@ db.run("SELECT * FROM USERS", (err, result) => {
     db.run(
       "create table likedSongs(username varchar(30), songId varchar(20));"
     );
+    db.run(
+      "create table playlists(playlistName varchar(30), songId varchar(20));"
+    );
   } else {
     console.log("Tables exist");
   }
@@ -84,15 +87,34 @@ app.post("/register", (request, response) => {
   );
 });
 
-app.get("/main", function (req, res) {
+// handling redirect to main page
+app.get("/main", (req, res) => {
   let username = req.query.user;
   res.sendFile("main.html", { root: __dirname });
 });
 
-app.get("/profile", function (req, res) {
+// handling redirect to profile page
+app.get("/profile", (req, res) => {
   let username = req.query.user;
   res.sendFile("profile.html", { root: __dirname });
 });
+
+// handling user info requests
+app.post("/user", (req, res) => {
+  db.all(
+    `select email, mobile, subscription from users where username= '${req.body.username}'`,
+    (err, rows) => {
+      res.send({ userData: rows[0] });
+    }
+  );
+});
+
+// handling song info requests
+
+// handling history requests
+
+// handling playlist requests
+
 // closing the database
 // db.close((err) => {
 //   if (err) {
