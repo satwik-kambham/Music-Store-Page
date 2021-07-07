@@ -10,20 +10,19 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="Stylesheets/style.css" />
-    <script src="Scripts/profile.js"></script>
-    <title>Document</title>
+    <link rel="stylesheet" href="../Stylesheets/style.css" />
+    <title>Symphony</title>
   </head>
   <body>
     <div class="container">
       <div class="navbar">
         <div class="logo">
-          <img src="Assets/logo.png" alt="Logo" height="40" />
-          MUSIC PLAYER
+          <img src="../Assets/logo.png" alt="Logo" height="40" />
+          SYMPHONY
         </div>
         <nav>
           <ul>
-            <li class="nav"><a href="#">HOME</a></li>
+            <li class="nav"><a href="main.html">HOME</a></li>
             <li class="nav"><a href="about.html">ABOUT US</a></li>
             <li class="nav"><a href="index.html">LOGOUT</a></li>
           </ul>
@@ -46,7 +45,9 @@
         Subscription:
         <span class="info" id="Subscription">None</span>
         <br />
-        <button class="btn" onclick="editProfile()" id="editbtn">Edit Profile</button>
+        <button class="btn" onclick="editProfile()" id="editbtn">
+          Edit Profile
+        </button>
         <br />
         <hr />
         <br />
@@ -69,5 +70,6 @@
         <hr />
       </div>
     </div>
+    <script src="../Scripts/profile.js"></script>
   </body>
 </html>

@@ -5,12 +5,13 @@
   font-family: "Roboto", sans-serif;
 }
 .container {
-  background: url(https://cdn.pixabay.com/photo/2017/11/12/16/41/people-2943109_960_720.jpg)
+  /* background: url(https://cdn.pixabay.com/photo/2017/11/12/16/41/people-2943109_960_720.jpg)
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
+  background-color: #555;
 }
 .logo {
   display: flex;
@@ -59,7 +60,7 @@ h4 {
   color: aliceblue;
   text-align: center;
   font-size: 150%;
-  padding: 125px 10px 125px 10px;
+  padding: 25px 10px 25px 10px;
   list-style: inside;
 }
 

@@ -1,6 +1,16 @@
 let editMode = false;
+let ids = ["Username", "Email", "Mobile", "Subscription"];
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const username = urlParams.get("user");
+
+document.getElementById("Username").innerText = username;
+
+//request stuff from server and add to profile
+
+
 function editProfile() {
-  let ids = ["Username", "Email", "Mobile", "Subscription"];
   if (!editMode) {
     ids.forEach((id) => {
       let e = document.getElementById(id);

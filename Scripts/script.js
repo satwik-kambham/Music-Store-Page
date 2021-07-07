@@ -30,6 +30,9 @@ async function login() {
   const resp = await response.json();
 
   console.log(resp);
+  if (resp.valid) {
+    window.location.href = "main/?user="+username;
+  }
 }
 
 async function register() {
@@ -78,13 +81,10 @@ async function register() {
     console.log(resp);
     if (resp.valid) {
       console.log("Valid credentials");
-      // redirect to the profile page
+      alert("User successfully registered");
+      window.location.href = "main/?user="+username;
     } else {
       alert("The username already exists.");
     }
   }
-}
-
-function guestLogin() {
-  window.location.href = "profile.html";
 }

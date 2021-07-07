@@ -27,7 +27,7 @@ db.run("SELECT * FROM USERS", (err, result) => {
       "create table users(username varchar(30), password varchar(30), email varchar(30), mobile varchar(13), subscription varchar(20), usertype varchar(6), primary key(username));"
     );
     db.run(
-      "create table songs(songName varchar(20), songId integer, duration varchar(10), genre varchar(20), artistName varchar(30), views integer, likes integer, coverImageURL varchar(100), audioURL varchar(100), primary key(songId));"
+      "create table songs(songName varchar(20), songId integer, duration varchar(10), genre varchar(20), artistName varchar(30), views integer, likes integer, coverImageURL varchar(100), audioURL varchar(100), subscription varchar(20), primary key(songId));"
     );
     db.run(
       "create table history(username varchar(20), songId varchar(20), timestamp varchar(20));"
@@ -58,15 +58,12 @@ app.post("/login", (request, response) => {
 // registration handling
 app.post("/register", (request, response) => {
   let resp = { status: "Got register credentials", valid: false };
-
-  let validUser = false;
   db.all(
     `select username from users where username= '${request.body.username}'`,
     (err, rows) => {
       if (rows.length == 0) {
-        validUser = true;
+        resp.valid = true;
       }
-      resp.valid = validUser;
       response.send(resp);
       const insertQuery =
         "INSERT INTO USERS VALUES('" +
@@ -80,13 +77,22 @@ app.post("/register", (request, response) => {
         "', 'base' , '" +
         request.body.userType +
         "')";
-      if (validUser) {
+      if (resp.valid) {
         db.run(insertQuery);
       }
     }
   );
 });
 
+app.get("/main", function (req, res) {
+  let username = req.query.user;
+  res.sendFile("main.html", { root: __dirname });
+});
+
+app.get("/profile", function (req, res) {
+  let username = req.query.user;
+  res.sendFile("profile.html", { root: __dirname });
+});
 // closing the database
 // db.close((err) => {
 //   if (err) {
