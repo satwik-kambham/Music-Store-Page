@@ -45,7 +45,32 @@
         <span class="info" id="Mobile">---</span>
         <br />
         Subscription:
-        <span class="info" id="Subscription">None</span>
+        <label for="base" class="label">Tier2</label>
+        <input
+          type="radio"
+          value="tier2"
+          class="Radio"
+          id="tier2"
+          name="subscription"
+        />
+        <label for="base" class="label">Tier1</label>
+        <input
+          type="radio"
+          value="tier1"
+          class="Radio"
+          id="tier1"
+          name="subscription"
+        />
+        <label for="base" class="label">Base</label>
+        <input
+          type="radio"
+          value="base"
+          class="Radio"
+          id="base"
+          name="subscription"
+          checked
+        />
+
         <br />
         <button class="btn" onclick="editProfile()" id="editbtn">
           Edit Profile

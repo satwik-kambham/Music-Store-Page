@@ -109,6 +109,27 @@ app.post("/user", (req, res) => {
   );
 });
 
+// updating user information
+app.post("/updateUser", (req, res) => {
+  const updateQuery =
+    "UPDATE USERS SET EMAIL='" +
+    req.body.email +
+    "', MOBILE='" +
+    req.body.mobile +
+    "', SUBSCRIPTION='" +
+    req.body.subscription +
+    "' WHERE USERNAME='" +
+    req.body.username +
+    "';";
+  db.run(updateQuery, (result, err) => {
+    if (err) {
+      res.send({ status: "unsuccessful" });
+    } else {
+      res.send({ status: "successful" });
+    }
+  });
+});
+
 // handling song info requests
 
 // handling history requests

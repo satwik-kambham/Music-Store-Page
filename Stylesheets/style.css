@@ -5,13 +5,12 @@
   font-family: "Roboto", sans-serif;
 }
 .container {
-  /* background: url(https://cdn.pixabay.com/photo/2017/11/12/16/41/people-2943109_960_720.jpg)
+  background: url(https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg)
     no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover; */
-  background-color: #555;
+  background-size: cover;
 }
 .logo {
   display: flex;
@@ -110,6 +109,19 @@ form input {
   vertical-align: middle;
   height: 20px;
   padding: 5px;
+}
+.Radio {
+  width: 20px;
+  float: right;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
+
+.label {
+  float: right;
+  padding-left: 4px;
+  padding-right: 10px;
 }
 
 .btn {

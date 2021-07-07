@@ -1,5 +1,5 @@
 let editMode = false;
-let ids = ["Username", "Email", "Mobile", "Subscription"];
+let ids = ["Email", "Mobile"];
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -24,11 +24,10 @@ async function setup() {
 
   document.getElementById("Email").innerText = resp.userData.email;
   document.getElementById("Mobile").innerText = resp.userData.mobile;
-  document.getElementById("Subscription").innerText =
-    resp.userData.subscription;
+  document.getElementById(resp.userData.subscription).checked = true;
 }
 
-function editProfile() {
+async function editProfile() {
   if (!editMode) {
     ids.forEach((id) => {
       let e = document.getElementById(id);
@@ -43,6 +42,32 @@ function editProfile() {
       e.outerHTML = `${text}`;
     });
     document.getElementById("editbtn").innerText = "Edit Profile";
+
+    // sending changes to the server
+    const user = document.getElementsByName("subscription");
+    let subscription;
+
+    for (i = 0; i < user.length; i++) {
+      if (user[i].checked) subscription = user[i].value;
+    }
+    let changedInfo = {
+      username: username,
+      email: document.getElementById("Email").innerText,
+      mobile: document.getElementById("Mobile").innerText,
+      subscription: subscription,
+    };
+    console.log(changedInfo);
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(changedInfo),
+    };
+
+    const responce = await fetch("/updateUser", options);
+    const res = await responce.json();
+    alert(res.status);
   }
   editMode = !editMode;
 }
