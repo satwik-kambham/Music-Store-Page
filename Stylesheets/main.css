@@ -2,18 +2,43 @@
   box-sizing: border-box;
 }
 
-.first {
-  background: linear-gradient(#000000, #3c1053, #b129f0, #3c1053, #050505);
+html {
+  background: url(https://cdn.pixabay.com/photo/2016/11/22/19/15/hand-1850120_960_720.jpg)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align: center;
 }
 
-div.first {
+.playButton {
+  color: black;
+  background-color: #b3ff00e8;
+  font-size: 110%;
+  float: left;
+  width: 48%;
+  border-radius: 20px;
+}
+
+.likeBtn {
+  color: black;
+  background-color: #c300ffc7;
+  font-size: 110%;
+  width: 48%;
+  float: right;
+  border-radius: 20px;
+}
+
+.song {
   display: inline-block;
   padding: 40px 20px;
   margin: 20px 20px;
   width: 330px;
   height: 700px;
+  text-align: center;
 }
-div.second {
+.songInfo {
   padding: 20px;
   text-align: center;
   font-family: papyrus;
@@ -21,14 +46,9 @@ div.second {
   font-weight: 900;
   color: white;
 }
-div.first img {
+.song img {
   width: 250px;
   height: 250px;
-}
-body {
-  background-image: url("bgbg.jpeg");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 .bg {
@@ -80,7 +100,12 @@ form {
   align-items: center;
 }
 
-/* .first:hover {
-    width: 400px;
-    height: auto;
-  } */
+h2 {
+  text-align: center;
+  color: azure;
+}
+
+body {
+  margin: 0;
+  border: 0;
+}

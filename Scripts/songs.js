@@ -39,12 +39,12 @@ async function setup() {
 }
 
 function main() {
-  window.location.href = "../../main/?user=" + username + "&type=" + userType;
+  window.location.href = "../../main/?user=" + username + "&type=" + type;
 }
 
 function profile() {
   window.location.href =
-    "../../profile/?user=" + username + "&type=" + userType;
+    "../../profile/?user=" + username + "&type=" + type;
 }
 
 async function addSong() {

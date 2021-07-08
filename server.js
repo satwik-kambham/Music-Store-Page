@@ -149,6 +149,13 @@ app.post("/song", (req, res) => {
   );
 });
 
+// handling song info requests
+app.post("/songs", (req, res) => {
+  db.all(`select * from songs`, (err, rows) => {
+    res.send({ songData: rows });
+  });
+});
+
 // adding songs to the database
 app.post("/songAdd", (request, response) => {
   let songId;
