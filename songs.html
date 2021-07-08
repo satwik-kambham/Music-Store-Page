@@ -50,7 +50,13 @@
           Subscription:
           <br />
           <div class="songRadio">
-            <input type="radio" name="subscription" id="base" value="base" checked/>
+            <input
+              type="radio"
+              name="subscription"
+              id="base"
+              value="base"
+              checked
+            />
             <label for="base">Base</label>
             <input type="radio" name="subscription" id="tier1" value="tier1" />
             <label for="tier1">Tier1</label>
@@ -63,10 +69,19 @@
       </div>
       <hr />
       <div class="songsList">
-        <ul>
-          <li>sdfsk</li>
-          <li>sdfs</li>
-        </ul>
+        <table class="styled-table">
+          <thead>
+            <tr>
+              <th>Song Id</th>
+              <th>Song Name</th>
+              <th>Genre</th>
+              <th>Views</th>
+              <th>Likes</th>
+              <th>Subscription</th>
+            </tr>
+          </thead>
+          <tbody id="table"></tbody>
+        </table>
       </div>
     </div>
     <script src="../Scripts/songs.js"></script>

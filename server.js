@@ -152,7 +152,6 @@ app.post("/song", (req, res) => {
 // adding songs to the database
 app.post("/songAdd", (request, response) => {
   let songId;
-  console.log(request.body);
   db.all("SELECT * FROM SONGS", (err, rows) => {
     songId = rows.length;
     const insertQuery =
@@ -171,7 +170,6 @@ app.post("/songAdd", (request, response) => {
       "', '" +
       request.body.subscription +
       "')";
-    console.log(insertQuery);
     db.run(insertQuery);
   });
   response.send({ status: "success" });

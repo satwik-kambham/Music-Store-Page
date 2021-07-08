@@ -19,7 +19,23 @@ async function setup() {
   const response = await fetch("/song", options);
   const resp = await response.json();
 
-  console.log(resp);
+  let table = document.getElementById("table");
+  resp.songData.forEach((row) => {
+    let r = table.insertRow();
+
+    let songid = r.insertCell();
+    songid.innerText = row.songId;
+    let songname = r.insertCell();
+    songname.innerText = row.songName;
+    let genre = r.insertCell();
+    genre.innerText = row.genre;
+    let views = r.insertCell();
+    views.innerText = row.views;
+    let likes = r.insertCell();
+    likes.innerText = row.likes;
+    let subscription = r.insertCell();
+    subscription.innerText = row.subscription;
+  });
 }
 
 function main() {
