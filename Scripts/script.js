@@ -31,7 +31,7 @@ async function login() {
 
   console.log(resp);
   if (resp.valid) {
-    window.location.href = "main/?user="+username;
+    window.location.href = "main/?user=" + username + "&type=" + resp.userType;
   }
 }
 
@@ -82,7 +82,7 @@ async function register() {
     if (resp.valid) {
       console.log("Valid credentials");
       alert("User successfully registered");
-      window.location.href = "main/?user="+username;
+      window.location.href = "main/?user=" + username + "&type=" + userType;
     } else {
       alert("The username already exists.");
     }

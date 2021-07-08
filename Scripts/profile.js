@@ -4,8 +4,14 @@ let ids = ["Email", "Mobile"];
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const username = urlParams.get("user");
+const type = urlParams.get("type");
 
 document.getElementById("Username").innerText = username;
+
+if (type != "artist") {
+  document.getElementById("artistbtn").style.display = "none";
+}
+
 setup();
 
 //request stuff from server and add to profile
@@ -76,5 +82,14 @@ async function main() {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const username = urlParams.get("user");
-  window.location.href = "../../main/?user=" + username;
+  const userType = urlParams.get("type");
+  window.location.href = "../../main/?user=" + username + "&type=" + userType;
+}
+
+function manageSongs() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const username = urlParams.get("user");
+  const userType = urlParams.get("type");
+  window.location.href = "../../manage/?user=" + username + "&type=" + userType;
 }

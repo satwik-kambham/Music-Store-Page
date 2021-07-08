@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../Stylesheets/style.css" />
+    <title>Symphony</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="../Assets/logo.png" alt="Logo" height="40" />
+          SYMPHONY
+        </div>
+        <nav>
+          <ul>
+            <li class="nav">
+              <a onclick="main()" style="cursor: pointer">HOME</a>
+            </li>
+            <li class="nav">
+              <a onclick="profile()" style="cursor: pointer">PROFILE</a>
+            </li>
+            <li class="nav"><a href="../../about.html">ABOUT US</a></li>
+            <li class="nav"><a href="../..">LOGOUT</a></li>
+          </ul>
+        </nav>
+      </div>
+      <hr />
+      <br />
+      <div class="addSong">
+        <h2>Add song</h2>
+        <br />
+        <form class="songForm">
+          <label for="songName">Song Name:</label>
+          <input type="text" id="songName" class="songInput" />
+          <label for="songGenre">Genre:</label>
+          <input type="text" id="songGenre" class="songInput" />
+          <label for="songImage">Cover Image URL:</label>
+          <input type="text" id="songImage" class="songInput" />
+          <label for="songAudio">Audio URL:</label>
+          <input type="text" id="songAudio" class="songInput" />
+          Subscription:
+          <br />
+          <div class="songRadio">
+            <input type="radio" name="subscription" id="base" value="base" checked/>
+            <label for="base">Base</label>
+            <input type="radio" name="subscription" id="tier1" value="tier1" />
+            <label for="tier1">Tier1</label>
+            <input type="radio" name="subscription" id="tier2" value="tier2" />
+            <label for="tier2">Tier2</label>
+          </div>
+        </form>
+        <br />
+        <button class="addSongBtn" onclick="addSong()">Add Song</button>
+      </div>
+      <hr />
+      <div class="songsList">
+        <ul>
+          <li>sdfsk</li>
+          <li>sdfs</li>
+        </ul>
+      </div>
+    </div>
+    <script src="../Scripts/songs.js"></script>
+  </body>
+</html>

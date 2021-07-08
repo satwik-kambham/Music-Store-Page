@@ -27,7 +27,7 @@ db.run("SELECT * FROM USERS", (err, result) => {
       "create table users(username varchar(30), password varchar(30), email varchar(30), mobile varchar(13), subscription varchar(20), usertype varchar(6), primary key(username));"
     );
     db.run(
-      "create table songs(songName varchar(20), songId integer, duration varchar(10), genre varchar(20), artistName varchar(30), views integer, likes integer, coverImageURL varchar(100), audioURL varchar(100), subscription varchar(20), primary key(songId));"
+      "create table songs(songName varchar(20), songId integer, genre varchar(20), artistName varchar(30), views integer, likes integer, coverImageURL varchar(100), audioURL varchar(100), subscription varchar(20), primary key(songId));"
     );
     db.run(
       "create table history(username varchar(20), songId varchar(20), timestamp varchar(20));"
@@ -45,13 +45,18 @@ db.run("SELECT * FROM USERS", (err, result) => {
 
 // login handling
 app.post("/login", (request, response) => {
-  let resp = { status: "Got login credentials", valid: false };
+  let resp = {
+    status: "Got login credentials",
+    valid: false,
+    userType: "user",
+  };
 
   db.all(
-    `select username, password from users where username= '${request.body.username}'`,
+    `select username, password, usertype from users where username= '${request.body.username}'`,
     (err, rows) => {
       if (rows.length == 1 && rows[0].password == request.body.password) {
         resp.valid = true;
+        resp.userType = rows[0].usertype;
       }
       response.send(resp);
     }
@@ -95,14 +100,18 @@ app.get("/main", (req, res) => {
 
 // handling redirect to profile page
 app.get("/profile", (req, res) => {
-  let username = req.query.user;
   res.sendFile("profile.html", { root: __dirname });
+});
+
+// handling redirect to artist songs page
+app.get("/manage", (req, res) => {
+  res.sendFile("songs.html", { root: __dirname });
 });
 
 // handling user info requests
 app.post("/user", (req, res) => {
   db.all(
-    `select email, mobile, subscription from users where username= '${req.body.username}'`,
+    `select email, mobile, subscription, usertype from users where username= '${req.body.username}'`,
     (err, rows) => {
       res.send({ userData: rows[0] });
     }
@@ -131,6 +140,42 @@ app.post("/updateUser", (req, res) => {
 });
 
 // handling song info requests
+app.post("/song", (req, res) => {
+  db.all(
+    `select * from songs where artistName='${req.body.username}'`,
+    (err, rows) => {
+      res.send({ songData: rows });
+    }
+  );
+});
+
+// adding songs to the database
+app.post("/songAdd", (request, response) => {
+  let songId;
+  console.log(request.body);
+  db.all("SELECT * FROM SONGS", (err, rows) => {
+    songId = rows.length;
+    const insertQuery =
+      "INSERT INTO SONGS VALUES('" +
+      request.body.songName +
+      "', " +
+      songId +
+      ", '" +
+      request.body.genre +
+      "', '" +
+      request.body.artistName +
+      "', 0, 0, '" +
+      request.body.coverImgURL +
+      "', '" +
+      request.body.audioURL +
+      "', '" +
+      request.body.subscription +
+      "')";
+    console.log(insertQuery);
+    db.run(insertQuery);
+  });
+  response.send({ status: "success" });
+});
 
 // handling history requests
 

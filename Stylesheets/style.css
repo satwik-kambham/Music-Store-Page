@@ -160,3 +160,31 @@ form {
   margin: 10px 0;
   border-radius: 30px;
 }
+
+.addSong {
+  text-align: center;
+  color: aliceblue;
+}
+
+.songForm {
+  font-size: 130%;
+  width: 100%;
+  padding-left: 40%;
+  padding-right: 40%;
+}
+
+.addSongBtn {
+  display: inline-block;
+  background: #ff523b;
+  color: #fff;
+  padding: 8px;
+  margin: 10px 0;
+  border-radius: 30px;
+  width: 300px;
+}
+
+.songRadio input[type="radio"]{
+  width: 25px;
+  position: relative;
+  top: 10px;
+}
