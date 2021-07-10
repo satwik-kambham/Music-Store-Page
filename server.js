@@ -159,9 +159,9 @@ app.post("/songs", (req, res) => {
 // handling song playing
 app.post("/play", (req, res) => {
   db.all(
-    `select audioURL from songs where songId=` + req.body.songId,
+    `select audioURL, subscription from songs where songId=` + req.body.songId,
     (err, rows) => {
-      res.send({ songURL: rows[0].audioURL });
+      res.send({ songURL: rows[0].audioURL, subLevel: rows[0].subscription });
     }
   );
   db.run("update songs set views = views + 1 where songId=" + req.body.songId);

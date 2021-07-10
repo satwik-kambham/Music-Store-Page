@@ -1,7 +1,14 @@
 let songs;
 let audio;
 let playing = false;
+let userSub;
 main();
+
+const subscriptions = {
+  base: 0,
+  tier1: 1,
+  tier2: 2,
+};
 
 async function profile() {
   const queryString = window.location.search;
@@ -29,7 +36,7 @@ async function main() {
     body: JSON.stringify(user),
   };
 
-  const response = await fetch("/songs", options);
+  let response = await fetch("/songs", options);
   songs = (await response.json()).songData;
 
   songs.forEach((song) => {
@@ -55,6 +62,10 @@ async function main() {
 
     songsDIV.innerHTML += songHTML;
   });
+
+  response = await fetch("/user", options);
+  const resp = await response.json();
+  userSub = resp.userData.subscription;
 }
 
 async function play(id) {
@@ -70,16 +81,25 @@ async function play(id) {
   };
 
   const response = await fetch("/play", options);
-  audioURL = (await response.json()).songURL;
+  const resp = await response.json();
+  audioURL = resp.songURL;
 
-  if (playing) {
-    audio.pause();
-    audio = await new Audio(audioURL);
-    audio.play();
+  if (subscriptions[userSub] >= subscriptions[resp.subLevel]) {
+    if (playing) {
+      audio.pause();
+      audio = await new Audio(audioURL);
+      audio.play();
+    } else {
+      audio = await new Audio(audioURL);
+      audio.play();
+      playing = true;
+    }
   } else {
-    audio = await new Audio(audioURL);
-    audio.play();
-    playing = true;
+    alert(
+      "You do not have the right subscription level to play this song. You need atleast subscription " +
+        resp.subLevel +
+        " to play this song."
+    );
   }
 }
 
