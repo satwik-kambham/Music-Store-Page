@@ -139,7 +139,7 @@ app.post("/updateUser", (req, res) => {
   });
 });
 
-// handling song info requests
+// handling song info requests for single user
 app.post("/song", (req, res) => {
   db.all(
     `select * from songs where artistName='${req.body.username}'`,
@@ -154,6 +154,24 @@ app.post("/songs", (req, res) => {
   db.all(`select * from songs`, (err, rows) => {
     res.send({ songData: rows });
   });
+});
+
+// handling song playing
+app.post("/play", (req, res) => {
+  db.all(
+    `select audioURL from songs where songId=` + req.body.songId,
+    (err, rows) => {
+      res.send({ songURL: rows[0].audioURL });
+    }
+  );
+  db.run("update songs set views = views + 1 where songId=" + req.body.songId);
+});
+
+// handling liked songs
+app.post("/like", (req, res) => {
+  // check if already liked before
+  db.run("update songs set likes = likes + 1 where songId=" + req.body.songId);
+  res.end();
 });
 
 // adding songs to the database

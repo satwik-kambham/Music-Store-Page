@@ -1,4 +1,6 @@
 let songs;
+let audio;
+let playing = false;
 main();
 
 async function profile() {
@@ -55,8 +57,30 @@ async function main() {
   });
 }
 
-function play(id) {
-  console.log(id);
+async function play(id) {
+  let audioURL;
+
+  const songInfo = { username: username, songId: id };
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(songInfo),
+  };
+
+  const response = await fetch("/play", options);
+  audioURL = (await response.json()).songURL;
+
+  if (playing) {
+    audio.pause();
+    audio = await new Audio(audioURL);
+    audio.play();
+  } else {
+    audio = await new Audio(audioURL);
+    audio.play();
+    playing = true;
+  }
 }
 
 function like(id) {
