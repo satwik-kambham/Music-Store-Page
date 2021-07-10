@@ -10,7 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../Stylesheets/style.css" />
+    <link rel="stylesheet" href="../Stylesheets/profile.css" />
     <title>Symphony</title>
   </head>
   <body>
@@ -83,19 +83,41 @@
         <br />
         Liked songs:
         <br />
-        Add the liked songs from database here.
-        <br /><br />
-        <hr />
-        <br />
-        Playlists:
-        <br />
-        Add the playlists from database here.
+        <div class="songsList">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Song Id</th>
+                <th>Song Name</th>
+                <th>Genre</th>
+                <th>Views</th>
+                <th>Likes</th>
+                <th>Subscription</th>
+              </tr>
+            </thead>
+            <tbody id="liked"></tbody>
+          </table>
+        </div>
         <br /><br />
         <hr />
         <br />
         History:
         <br />
-        Add the history from database here.
+        <div class="songsList">
+          <table class="styled-table">
+            <thead>
+              <tr>
+                <th>Song Id</th>
+                <th>Song Name</th>
+                <th>Genre</th>
+                <th>Views</th>
+                <th>Likes</th>
+                <th>Subscription</th>
+              </tr>
+            </thead>
+            <tbody id="history"></tbody>
+          </table>
+        </div>
         <br /><br />
         <hr />
       </div>

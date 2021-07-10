@@ -1,4 +1,5 @@
 // adding express
+const { query } = require("express");
 const express = require("express");
 const app = express();
 
@@ -29,14 +30,9 @@ db.run("SELECT * FROM USERS", (err, result) => {
     db.run(
       "create table songs(songName varchar(20), songId integer, genre varchar(20), artistName varchar(30), views integer, likes integer, coverImageURL varchar(100), audioURL varchar(100), subscription varchar(20), primary key(songId));"
     );
-    db.run(
-      "create table history(username varchar(20), songId varchar(20), timestamp varchar(20));"
-    );
+    db.run("create table history(username varchar(20), songId varchar(20));");
     db.run(
       "create table likedSongs(username varchar(30), songId varchar(20));"
-    );
-    db.run(
-      "create table playlists(playlistName varchar(30), songId varchar(20));"
     );
   } else {
     console.log("Tables exist");
@@ -149,6 +145,16 @@ app.post("/song", (req, res) => {
   );
 });
 
+// handling song info requests for particular song
+app.post("/songId", (req, res) => {
+  db.all(
+    `select * from songs where songId='${req.body.songId}'`,
+    (err, rows) => {
+      res.send({ songData: rows });
+    }
+  );
+});
+
 // handling song info requests
 app.post("/songs", (req, res) => {
   db.all(`select * from songs`, (err, rows) => {
@@ -169,8 +175,26 @@ app.post("/play", (req, res) => {
 
 // handling liked songs
 app.post("/like", (req, res) => {
-  // check if already liked before
-  db.run("update songs set likes = likes + 1 where songId=" + req.body.songId);
+  const query =
+    `select * from likedSongs where username='` +
+    req.body.username +
+    `' and songId=` +
+    req.body.songId;
+  db.all(query, (err, rows) => {
+    if (rows.length == 0) {
+      db.run(
+        "update songs set likes = likes + 1 where songId=" + req.body.songId
+      );
+      db.run(
+        `insert into likedSongs values('` +
+          req.body.username +
+          `', ` +
+          req.body.songId +
+          `)`
+      );
+    }
+  });
+
   res.end();
 });
 
@@ -201,8 +225,44 @@ app.post("/songAdd", (request, response) => {
 });
 
 // handling history requests
+app.post("/history", (req, res) => {
+  const query =
+    `select * from history where username='` +
+    req.body.username +
+    `' and songId=` +
+    req.body.songId;
+  db.all(query, (err, rows) => {
+    if (rows.length == 0) {
+      db.run(
+        "update songs set likes = likes + 1 where songId=" + req.body.songId
+      );
+      db.run(
+        `insert into history values('` +
+          req.body.username +
+          `', ` +
+          req.body.songId +
+          `)`
+      );
+    }
+  });
 
-// handling playlist requests
+  res.end();
+});
+
+// handling history and liked songs requests
+app.post("/historyList", (req, res) => {
+  const query = `select songId from history where username='` + req.body.username + `'`;
+  db.all(query, (err, rows) => {
+    res.send({ songData: rows });
+  });
+});
+
+app.post("/likedList", (req, res) => {
+  const query = `select songId from likedSongs where username='` + req.body.username + `'`;
+  db.all(query, (err, rows) => {
+    res.send({ songData: rows });
+  });
+});
 
 // closing the database
 // db.close((err) => {

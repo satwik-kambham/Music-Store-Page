@@ -2,6 +2,12 @@ let songs;
 let audio;
 let playing = false;
 let userSub;
+
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const username = urlParams.get("user");
+const userType = urlParams.get("type");
+
 main();
 
 const subscriptions = {
@@ -11,18 +17,11 @@ const subscriptions = {
 };
 
 async function profile() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const username = urlParams.get("user");
-  const userType = urlParams.get("type");
   window.location.href =
     "../../profile/?user=" + username + "&type=" + userType;
 }
 
 async function main() {
-  const queryString = window.location.search;
-  const urlParams = new URLSearchParams(queryString);
-  const username = urlParams.get("user");
   document.getElementById("username").innerText = "Welcome: " + username;
 
   let songsDIV = document.getElementById("songs");
@@ -94,6 +93,8 @@ async function play(id) {
       audio.play();
       playing = true;
     }
+
+    fetch("/history", options);
   } else {
     alert(
       "You do not have the right subscription level to play this song. You need atleast subscription " +
@@ -104,5 +105,15 @@ async function play(id) {
 }
 
 function like(id) {
-  console.log(id);
+  // add to liked songs
+  const songInfo = { username: username, songId: id };
+  const options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(songInfo),
+  };
+
+  fetch("/like", options);
 }

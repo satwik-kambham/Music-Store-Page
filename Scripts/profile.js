@@ -17,7 +17,7 @@ setup();
 //request stuff from server and add to profile
 async function setup() {
   const user = { username: username };
-  const options = {
+  let options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -25,12 +25,96 @@ async function setup() {
     body: JSON.stringify(user),
   };
 
-  const response = await fetch("/user", options);
-  const resp = await response.json();
+  let response = await fetch("/user", options);
+  let resp = await response.json();
 
   document.getElementById("Email").innerText = resp.userData.email;
   document.getElementById("Mobile").innerText = resp.userData.mobile;
   document.getElementById(resp.userData.subscription).checked = true;
+
+  // adding to history table
+  response = await fetch("/historyList", options);
+  resp = await response.json();
+
+  let table = document.getElementById("history");
+
+  resp.songData.forEach(async (row) => {
+    songId = { songId: row.songId };
+
+    options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(songId),
+    };
+
+    response = await fetch("/songId", options);
+    resp = await response.json();
+
+    resp.songData.forEach((row) => {
+      let r = table.insertRow();
+
+      let songid = r.insertCell();
+      songid.innerText = row.songId;
+      let songname = r.insertCell();
+      songname.innerText = row.songName;
+      let genre = r.insertCell();
+      genre.innerText = row.genre;
+      let views = r.insertCell();
+      views.innerText = row.views;
+      let likes = r.insertCell();
+      likes.innerText = row.likes;
+      let subscription = r.insertCell();
+      subscription.innerText = row.subscription;
+    });
+  });
+
+  options = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(user),
+  };
+
+  // adding to liked songs table
+  response = await fetch("/likedList", options);
+  resp = await response.json();
+
+  table = document.getElementById("liked");
+
+  resp.songData.forEach(async (row) => {
+    songId = { songId: row.songId };
+
+    options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(songId),
+    };
+
+    response = await fetch("/songId", options);
+    resp = await response.json();
+
+    resp.songData.forEach((row) => {
+      let r = table.insertRow();
+
+      let songid = r.insertCell();
+      songid.innerText = row.songId;
+      let songname = r.insertCell();
+      songname.innerText = row.songName;
+      let genre = r.insertCell();
+      genre.innerText = row.genre;
+      let views = r.insertCell();
+      views.innerText = row.views;
+      let likes = r.insertCell();
+      likes.innerText = row.likes;
+      let subscription = r.insertCell();
+      subscription.innerText = row.subscription;
+    });
+  });
 }
 
 async function editProfile() {

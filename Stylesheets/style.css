@@ -40,16 +40,6 @@ a {
   font-size: 20px;
 }
 
-.profile {
-  color: aliceblue;
-  font-size: 150%;
-  padding: 20px;
-}
-
-.info {
-  float: right;
-}
-
 h4 {
   text-align: center;
 }
@@ -110,19 +100,6 @@ form input {
   height: 20px;
   padding: 5px;
 }
-.Radio {
-  width: 20px;
-  float: right;
-  height: 20px;
-  position: relative;
-  top: 5px;
-}
-
-.label {
-  float: right;
-  padding-left: 4px;
-  padding-right: 10px;
-}
 
 .btn {
   width: 100%;
@@ -161,68 +138,3 @@ form {
   border-radius: 30px;
 }
 
-.addSong {
-  text-align: center;
-  color: aliceblue;
-}
-
-.songForm {
-  font-size: 130%;
-  width: 100%;
-  padding-left: 40%;
-  padding-right: 40%;
-}
-
-.addSongBtn {
-  display: inline-block;
-  background: #ff523b;
-  color: #fff;
-  padding: 8px;
-  margin: 10px 0;
-  border-radius: 30px;
-  width: 300px;
-}
-
-.songRadio input[type="radio"]{
-  width: 25px;
-  position: relative;
-  top: 10px;
-}
-
-.songsList {
-  color: aliceblue;
-  font-size: 120%;
-}
-
-.styled-table {
-  border-collapse: collapse;
-  margin: 25px 0;
-  font-size: 0.9em;
-  min-width: 400px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.styled-table thead tr {
-  background-color: #ff00aa70;
-  color: #ffffff;
-  text-align: left;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-}
-
-.styled-table tbody tr {
-  border-bottom: 1px solid #dddddd;
-}
-
-.styled-table tbody tr:nth-of-type(even) {
-  background-color: #73ff009c;
-}
-
-.styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #ff00ea70;
-}
