@@ -32,6 +32,8 @@ async function login() {
   console.log(resp);
   if (resp.valid) {
     window.location.href = "main/?user=" + username + "&type=" + resp.userType;
+  } else {
+    alert("Invalid user credentials");
   }
 }
 
